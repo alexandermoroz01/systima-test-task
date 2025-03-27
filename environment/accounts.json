@@ -1,5 +1,10 @@
 {
-    "TEST": {
-        "url": ""
+    "systima": {
+        "url": "https://app.staging.systima.no"
+    },
+    "test_user":{
+        "username": "joachim+453459@systima.no",
+        "password": "123456789"
     }
+
 }
