@@ -5,6 +5,7 @@ import BasePage from '@pages/base.page';
 import TestPage from '@pages/test.page';
 import LoginPage from '@pages/login.page';
 import DashboardPage from '@pages/dashboard.page';
+import ContactPage from '@pages/contacts.page';
 
 import * as fs from 'fs';
 
@@ -21,6 +22,7 @@ export const test = base.extend<{
     testPage: TestPage;
     loginPage: LoginPage;
     dashboardPage: DashboardPage;
+    contactPage: ContactPage;
 }>({
     context: async ({ browser }, use) => {
         const context = await browser.newContext({ timezoneId: 'America/New_York' });
@@ -36,8 +38,8 @@ export const test = base.extend<{
     basePage: async ({ pages }, use, testInfo) => {
         await use(new BasePage(pages[0], testInfo));
     },
-    tabChanger: async ({ pages, testPage, loginPage, dashboardPage}, use, testInfo) => {
-        await use(new TabChanger(pages[0], testInfo, testPage, loginPage, dashboardPage));
+    tabChanger: async ({ pages, testPage, loginPage, dashboardPage, contactPage}, use, testInfo) => {
+        await use(new TabChanger(pages[0], testInfo, testPage, loginPage, dashboardPage, contactPage));
     },
     testPage: async ({ pages }, use, testInfo) => {
         await use(new TestPage(pages[0], testInfo));
@@ -47,6 +49,9 @@ export const test = base.extend<{
     },
     dashboardPage: async ({ pages }, use, testInfo) => {
         await use(new DashboardPage(pages[0], testInfo));
+    },
+    contactPage: async ({ pages }, use, testInfo) => {
+        await use(new ContactPage(pages[0], testInfo));
     },
 });
 

@@ -14,6 +14,9 @@ class DashboardPage extends BasePage {
     public kontoInput: Locator;
     public bokforBtn: Locator;
     public popupMsg: Locator;
+    public fakturanrInput: Locator;
+    public betalingsdatoInput: Locator;
+    public kontakterBtn: Locator;
 
 
 
@@ -33,6 +36,9 @@ class DashboardPage extends BasePage {
         this.kontoInput = this.page.locator(`//input[@data-testid="account-select"]//..//..//div[@class="v-select__selections"]`);
         this.bokforBtn = this.page.locator(`//span[normalize-space()='Bokfør']`);
         this.popupMsg = this.page.locator('//div[@class="snackbar-container"]');
+        this.fakturanrInput = this.page.locator(`//label[text()='Fakturanr.']//..//input`);
+        this.betalingsdatoInput = this.page.locator(`//label[text()='Betalingsdato *']//..//input`);
+        this.kontakterBtn = this.page.locator(`//div[@class="v-list-item__title" and text()='Kontakter']//..//..//i`);
     }
 
     public updatePage(newPage: Page) {
@@ -50,6 +56,10 @@ class DashboardPage extends BasePage {
         await this.click(this.kontoInput);
         await this.fill(this.sokInput, text);
         await this.clickEnterKey();
+    }
+
+    errorLabelByText(text: string){
+        return this.page.locator(`//div[@class="v-messages theme--light error--text" and @role="alert"]//span[contains(normalize-space(),'${text}')]`);
     }
 
 }

@@ -1,5 +1,6 @@
 import BasePage from '@pages/base.page';
 import { Locator, Page, TestInfo, expect, test } from '@playwright/test';
+import moment from "moment";
 
 class LoginPage extends BasePage {
     public endpoint = 'login';

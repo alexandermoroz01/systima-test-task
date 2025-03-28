@@ -15,6 +15,10 @@ export default class BasePage {
         await this.page.keyboard.press('Enter');
     }
 
+    async clickEscKey(): Promise<void> {
+        await this.page.keyboard.press('Escape');
+    }
+
     async click(locator: Locator, timeout: number = this.defaultTimeout): Promise<void> {
         await locator.click({timeout: timeout});
     }
@@ -23,5 +27,11 @@ export default class BasePage {
         await locator.fill(String(value), {timeout: timeout});
     }
 
+    async type(locator: Locator, value: any, timeout: number = this.defaultTimeout): Promise<void> {
+        await locator.type(String(value), {delay: 150, timeout: timeout});
+    }
 
+    async clickTopLeftCorner() {
+        await this.page.mouse.click(0, 0);
+    }
 }
