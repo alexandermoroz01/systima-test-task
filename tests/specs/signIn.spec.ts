@@ -1,12 +1,12 @@
 import { test, expect, acct } from 'tests/fixtures';
 
-test.describe.configure({ mode: 'serial' })
+test.describe.configure({ mode: 'parallel' })
 
 test.describe('Sign In', () => {
 
     test.beforeEach(async ({ pages }) => {
-    await pages[0].goto('/login');
-  });
+        await pages[0].goto('/login');
+    });
 
     test('Successful Login', async ({ 
         pages,

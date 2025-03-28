@@ -13,7 +13,7 @@ import { acct } from 'tests/fixtures';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: './tests/specs/',
   globalTimeout: 60 * 60 * 1000,
   timeout: 2 * 60 * 1000,
   expect: {timeout: 10000},
