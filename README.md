@@ -1,4 +1,3 @@
-# systima-test-task
 # Clone repo
     git clone https://github.com/alexandermoroz01/systima-test-task.git
 
