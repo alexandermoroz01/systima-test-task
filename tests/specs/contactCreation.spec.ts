@@ -1,5 +1,4 @@
 import { test, expect, acct } from 'tests/fixtures';
-import moment from "moment";
 
 test.describe.configure({ mode: 'parallel' })
 
@@ -56,7 +55,6 @@ test.describe('Contact Creation', () => {
             'Green success message: "Ny kontakt lagret."', async () => {
                 await basePage.click(contactPage.opprettKontaktBtn);
                 await expect(contactPage.popupMsg).toBeVisible();
-                console.log(await contactPage.popupMsg.textContent());
                 await expect(contactPage.popupMsg).toContainText('Ny kontakt lagret.');
                 await basePage.fill(contactPage.sokInput, testData);
                 await expect(contactPage.navnByText(testData)).toBeVisible();
